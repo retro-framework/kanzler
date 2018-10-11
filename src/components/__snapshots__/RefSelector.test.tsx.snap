@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`displays loading span rather than dropdown when loading 1`] = `
+<select
+  className="RefSelector"
+  onChange={[Function]}
+  value={undefined}
+>
+  <option>
+    Choose...
+  </option>
+</select>
+`;
+
+exports[`displays nothing when no ref is undefined 1`] = `
+<select
+  className="RefSelector"
+  onChange={[Function]}
+  value={undefined}
+>
+  <option>
+    Choose...
+  </option>
+</select>
+`;
+
+exports[`displays nothing when no refs loaded 1`] = `
+<select
+  className="RefSelector"
+  onChange={[Function]}
+  value={undefined}
+>
+  <option>
+    Choose...
+  </option>
+</select>
+`;
+
+exports[`displays nothing when no refs loaded 2`] = `
+<select
+  className="RefSelector"
+  onChange={[Function]}
+  value={undefined}
+>
+  <option>
+    Choose...
+  </option>
+</select>
+`;

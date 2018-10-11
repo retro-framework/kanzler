@@ -16,13 +16,20 @@ class RefSelector extends React.Component<any, any> {
     if (this.props.isLoading) {
       return "<span>Loading ...</span>"
     }
-    const options = this.props.refs.map((ref: any) => <option key={ref.hash.concat(ref.name)} value={ref.hash}>{ref.name}</option>);
+    
     return (
       <select className="RefSelector" value={this.props.selectedHash} onChange={this.update}>
         <option>Choose...</option>
-        {options}
+        {this.options()}
       </select>
       );
+  }
+  // public componentDidCatch(error: any, info: any) {
+  //   console.error(error, info);
+  // }
+  private options():any {
+    return undefined;
+    return (this.props && this.props.refs).map((ref: any) => <option key={ref.hash.concat(ref.name)} value={ref.hash}>{ref.name}</option>);
   }
 }
 
