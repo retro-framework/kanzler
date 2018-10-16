@@ -1,3 +1,8 @@
+export interface IState extends IStateErrorable, IStateLoadable {
+    readonly refs: IRefHash[]
+    readonly selectedHash: string
+}
+
 export interface IStateLoadable {
     readonly loading: boolean
 }

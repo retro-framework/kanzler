@@ -8,16 +8,13 @@ export interface IState extends IStateErrorable, IStateLoadable {
     readonly selectedHash: string
 }
 
-/*
- * Component Props
- */
 interface IPropsFromState extends IStateErrorable, IStateLoadable {
     refs: IRefHash[]
     selectedHash: string
 }
 
 interface IPropsFromDispatch {
-    handleChangedSelectedHeadRefHash: (_: string) => void
+    handleChangedSelectedHeadRefHash: (newRef: string) => void
 }
 
-export type IProps = IPropsFromState | IPropsFromDispatch
+export interface IProps extends IPropsFromState, IPropsFromDispatch {}

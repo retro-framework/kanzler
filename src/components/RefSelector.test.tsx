@@ -1,26 +1,36 @@
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 
+import { IProps } from '../types/RefSelector';
 import RefSelector from './RefSelector';
 
-const cases = [
+type TestCases = Array<{
+  readonly name: string 
+  readonly props: IProps
+}>;
+
+const cases: TestCases = [
   {
       name: 'displays nothing when no refs loaded', 
-      props: {}
+      props: {refs: [], selectedHash: "", loading: false, handleChangedSelectedHeadRefHash (_: string){  _ = _ } }
   },
   {
     name: 'displays loading span rather than dropdown when loading', 
-    props: { loading: true }
+    props: {refs: [], selectedHash: "", loading: true, handleChangedSelectedHeadRefHash (_: string){  _ = _ }}
   },
   {
-    name: 'displays nothing when no ref is undefined', 
-    props: { refs: undefined }
+    name: 'displays error nothing when no non-existent hash ref is defined', 
+    props: {refs: [{hash: "abc123", name: "refs/heads/mainline"}], selectedHash: "blah blah", loading: false, handleChangedSelectedHeadRefHash (_: string){  _ = _ }}
   },
   {
-    name: 'displays nothing when no refs loaded', 
-    props: {}
+    name: 'displays correctly when well defined hash ref is selected', 
+    props: {refs: [{hash: "abc123", name: "refs/heads/mainline"}], selectedHash: "abc123", loading: false, handleChangedSelectedHeadRefHash (_: string){  _ = _ }}
+  },
+  {
+    name: 'displays placeholder when no refs loaded and not loading', 
+    props: {refs: [], selectedHash: "", loading: false, handleChangedSelectedHeadRefHash (_: string){  _ = _ }}
   }
-]
+];
 
 cases.forEach(testCase => {
 
@@ -28,20 +38,9 @@ cases.forEach(testCase => {
     const component = renderer.create(
       <RefSelector {...testCase.props} />,
     );
-  
+      
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
-  
-  //   // manually trigger the callback
-  //   tree.props.onMouseEnter();
-  //   // re-rendering
-  //   tree = component.toJSON();
-  //   expect(tree).toMatchSnapshot();
-  
-  //   // manually trigger the callback
-  //   tree.props.onMouseLeave();
-  //   // re-rendering
-  //   tree = component.toJSON();
-  //   expect(tree).toMatchSnapshot();
+
   });
 })

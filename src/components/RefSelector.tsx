@@ -1,11 +1,10 @@
 import * as React from 'react';
+
+import { IProps } from '../types/RefSelector';
+
 import './RefSelector.css';
 
-class RefSelector extends React.Component<any, any> {
-  constructor(props: any) {
-    super(props);
-    this.props = props;
-  }
+class RefSelector extends React.Component<IProps> {
   public update = (e: any) => {
     this.props.handleChangedSelectedHeadRefHash(e.target.value);
   }
@@ -13,10 +12,9 @@ class RefSelector extends React.Component<any, any> {
     this.props.handleChangedSelectedHeadRefHash(this.props.selectedHash);
   }
   public render() {
-    if (this.props.isLoading) {
+    if (this.props.loading) {
       return "<span>Loading ...</span>"
     }
-    
     return (
       <select className="RefSelector" value={this.props.selectedHash} onChange={this.update}>
         <option>Choose...</option>
@@ -24,11 +22,7 @@ class RefSelector extends React.Component<any, any> {
       </select>
       );
   }
-  // public componentDidCatch(error: any, info: any) {
-  //   console.error(error, info);
-  // }
   private options():any {
-    return undefined;
     return (this.props && this.props.refs).map((ref: any) => <option key={ref.hash.concat(ref.name)} value={ref.hash}>{ref.name}</option>);
   }
 }

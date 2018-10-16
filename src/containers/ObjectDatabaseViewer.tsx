@@ -7,7 +7,7 @@ import IStoreState from '../types/store';
 export function mapStateToProps(state: IStoreState): IPropsFromState {
     return { 
         checkpoints: state.odbViewer.checkpoints,
-        isLoading: false,
+        loading: false,
         selectedHeadRefHash: state.odbViewer.selectedHeadRefHash,
      };
 }

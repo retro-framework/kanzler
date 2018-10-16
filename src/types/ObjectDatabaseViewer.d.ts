@@ -11,9 +11,8 @@ export interface IState extends IStateErrorable, IStateLoadable {
 /*
  * Component Props
  */
-interface IPropsFromState {
+interface IPropsFromState extends IStateErrorable, IStateLoadable {
     checkpoints: ICheckpoint[]
-    isLoading: boolean
     selectedHeadRefHash: string
 }
 
@@ -21,4 +20,4 @@ interface IPropsFromState {
 interface IPropsFromDispatch {}
 
 // tslint:disable-next-line:no-empty-interface
-export type IProps = IPropsFromState | IPropsFromDispatch;
+export interface IProps extends IPropsFromState, IPropsFromDispatch {}

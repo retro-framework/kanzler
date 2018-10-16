@@ -13,7 +13,7 @@ class ObjectDatabaseViewer extends React.Component<any, any> { // TODO: types
     this.props.changeSelectedCheckpoint(this.props.checkpoints[0]);
   }
   public render() {
-    if (this.props.isLoading === true) {
+    if (this.props.loading === true) {
       return <span>Loading…</span>
     }
     if (this.props.selectedHeadRefHash === "") {

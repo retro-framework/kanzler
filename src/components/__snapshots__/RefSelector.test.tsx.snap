@@ -1,34 +1,46 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`displays loading span rather than dropdown when loading 1`] = `
+exports[`displays correctly when well defined hash ref is selected 1`] = `
 <select
   className="RefSelector"
   onChange={[Function]}
-  value={undefined}
+  value="abc123"
 >
   <option>
     Choose...
+  </option>
+  <option
+    value="abc123"
+  >
+    refs/heads/mainline
   </option>
 </select>
 `;
 
-exports[`displays nothing when no ref is undefined 1`] = `
+exports[`displays error nothing when no non-existent hash ref is defined 1`] = `
 <select
   className="RefSelector"
   onChange={[Function]}
-  value={undefined}
+  value="blah blah"
 >
   <option>
     Choose...
   </option>
+  <option
+    value="abc123"
+  >
+    refs/heads/mainline
+  </option>
 </select>
 `;
+
+exports[`displays loading span rather than dropdown when loading 1`] = `"<span>Loading ...</span>"`;
 
 exports[`displays nothing when no refs loaded 1`] = `
 <select
   className="RefSelector"
   onChange={[Function]}
-  value={undefined}
+  value=""
 >
   <option>
     Choose...
@@ -36,11 +48,11 @@ exports[`displays nothing when no refs loaded 1`] = `
 </select>
 `;
 
-exports[`displays nothing when no refs loaded 2`] = `
+exports[`displays placeholder when no refs loaded and not loading 1`] = `
 <select
   className="RefSelector"
   onChange={[Function]}
-  value={undefined}
+  value=""
 >
   <option>
     Choose...
