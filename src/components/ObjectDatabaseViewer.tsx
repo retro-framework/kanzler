@@ -3,12 +3,11 @@ import './ObjectDatabaseViewer.css';
 import * as React from 'react';
 import * as types from '../types';
 
+import { IProps } from '../types/ObjectDatabaseViewer';
+
 import ObjectDatabaseCheckpoint from './ObjectDatabaseCheckpoint';
 
-class ObjectDatabaseViewer extends React.Component<any, any> { // TODO: types
-  /**
-   *  onClick={this.props.changeSelectedCheckpoint(checkpoint)}
-   */
+class ObjectDatabaseViewer extends React.Component<IProps> {
   public changeSelectedCheckpoint = (checkpoint: types.ICheckpoint) => {
     this.props.changeSelectedCheckpoint(checkpoint);
   }

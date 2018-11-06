@@ -17,7 +17,9 @@ interface IPropsFromState extends IStateErrorable, IStateLoadable {
 }
 
 // tslint:disable-next-line:no-empty-interface
-interface IPropsFromDispatch {}
+interface IPropsFromDispatch {
+    changeSelectedCheckpoint: (checkpoint: ICheckpoint) => void
+}
 
 // tslint:disable-next-line:no-empty-interface
 export interface IProps extends IPropsFromState, IPropsFromDispatch {}

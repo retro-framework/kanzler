@@ -2,6 +2,7 @@ import { connect, Dispatch } from 'react-redux';
 
 import * as actions from '../actions/';
 import RefSelector from '../components/RefSelector';
+import { ICheckpoint } from '../types';
 import { IPropsFromDispatch, IPropsFromState } from '../types/RefSelector';
 import IStoreState from '../types/store';
 
@@ -13,7 +14,7 @@ export function mapStateToProps(state: IStoreState): IPropsFromState {
     };
 }
 
-async function getCheckpoints(startHash: string) {
+async function getCheckpoints(startHash: string): Promise<ICheckpoint[]> {
     const getCheckpoint = async (hash: string) => {
         const result = await fetch(`/obj/${hash}`).then(response => response.json()).catch(e => console.error);
         if (result) {

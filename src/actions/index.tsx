@@ -74,7 +74,6 @@ export function refListEntriesAvailable(obj: any): IRefListEntriesAvailable {
 }
 
 export function changeSelectedODBVCheckpoint(checkpoint: types.ICheckpoint): ISelectedODBVCheckpointChanged {
-    console.log("🤬");
     return {
         payload: checkpoint,
         type: constants.SELECTED_ODBV_CHECKPOINT_CHANGED,
