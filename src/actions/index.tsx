@@ -9,6 +9,11 @@ export interface IODBVInvalidate {
     type: constants.ODBV_INVALIDATE,
 }
 
+export interface IODBVAffixAvailable {
+    type: constants.ODBV_AFFIX_AVAILABLE,
+    payload: types.IAffix,
+}
+
 export interface IRefListEntriesAvailable {
     type: constants.REF_LIST_ENTRIES_AVAILABLE,
     payload: types.IRefHash[],
@@ -53,7 +58,7 @@ export function setSelectedHeadRefHash(newHeadRefHash: string): ISetSelectedHead
     }
 }
 
-export function odbvCheckpointsAvailable(checkpoints: any): IODBVCheckpointsAvailable {
+export function odbvCheckpointsAvailable(checkpoints: types.ICheckpoint[]): IODBVCheckpointsAvailable {
     return {
         payload: checkpoints,
         type: constants.ODBV_CHECKPOINTS_AVAILABLE,
@@ -70,6 +75,13 @@ export function refListEntriesAvailable(obj: any): IRefListEntriesAvailable {
     return {
         payload: refs,
         type: constants.REF_LIST_ENTRIES_AVAILABLE,
+    }
+}
+
+export function odbvAffixAvailable(affix: types.IAffix): IODBVAffixAvailable {
+    return {
+        payload: affix,
+        type: constants.ODBV_AFFIX_AVAILABLE,
     }
 }
 

@@ -17,6 +17,7 @@ function mapDispatchToProps(dispatch: Dispatch<actions.Any>): IPropsFromDispatch
             fetch(urljoin(newURL + "/ref/"))
                 .then((response) => response.json())
                 .then((refs) => {
+                    console.log("refs are", refs)
                     dispatch(actions.refListEntriesAvailable(refs));
                 })
                 .catch((err) => console.error)

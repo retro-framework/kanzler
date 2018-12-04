@@ -1,5 +1,3 @@
-import { any } from "prop-types";
-
 export interface IState extends IStateErrorable, IStateLoadable {
     readonly refs: IRefHash[]
     readonly selectedHash: string
@@ -30,7 +28,7 @@ export interface ICheckpoint {
     readonly affixHash: HashStr
     readonly commandDesc: string
     readonly summary: string
-}g
+}
 
 /*
  * Events must have at least a hash (they are hashed server-side)
@@ -44,5 +42,8 @@ export interface IEvent extends Any {
 
 export interface IAffix {
     readonly hash: HashStr
-    readonly entities: Array<{ name: string, events: IEvent}>
+    readonly entities: Array<{
+        readonly name: string
+        readonly events: IEvent[]
+    }>
 }

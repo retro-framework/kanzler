@@ -12,6 +12,7 @@ class ObjectDatabaseViewer extends React.Component<IProps> {
     this.props.changeSelectedCheckpoint(checkpoint);
   }
   public render() {
+    console.log("odbv is loading", this.props)
     if (this.props.loading === true) {
       return <span>Loading…</span>
     }
@@ -22,7 +23,11 @@ class ObjectDatabaseViewer extends React.Component<IProps> {
       return (<span>Branch {this.props.selectedHeadRefHash} contains no checkpoints</span>);
     }
     const cps = this.props.checkpoints.map((checkpoint: types.ICheckpoint) => <ObjectDatabaseCheckpoint key={checkpoint.hash} checkpoint={checkpoint} selectCheckpointFn={this.changeSelectedCheckpoint} />);
-    return (<div className="odbv">
+    let className = "odbv"
+    if (this.props.loading) {
+      className += " odbv--loading"
+    }
+    return (<div className={className}>
       { cps }
     </div> 
     );

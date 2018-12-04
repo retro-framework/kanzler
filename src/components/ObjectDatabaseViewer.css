@@ -50,3 +50,7 @@
 .odbv__authorName:after {
   content: '>';
 }
+
+.odbv--loading {
+  background-color: greenyellow;
+}

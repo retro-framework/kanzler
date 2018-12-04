@@ -2,12 +2,6 @@ import * as React from 'react';
 
 import { IProps } from '../types/ObjectDatabaseCheckpoint';
 
-// readonly hash: string
-// readonly parentHashes: string[]
-// readonly affixHash: string
-// readonly commandDesc: string
-// readonly summary: string
-
 class ObjectDatabaseCheckpoint extends React.Component<IProps> {
     public update = (e: any) => {
         this.props.selectCheckpointFn(this.props.checkpoint);
