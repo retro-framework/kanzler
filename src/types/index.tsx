@@ -23,11 +23,18 @@ export interface IRefHash {
   readonly name: string;
 }
 
+export interface ICheckpointFields {
+  readonly date: Date;
+  readonly session: string;
+}
+
 export interface ICheckpoint {
-  readonly hash: HashStr;
-  readonly parentHashes: string[];
+  readonly affix?: IAffix;
   readonly affixHash: HashStr;
   readonly commandDesc: string;
+  readonly fields: ICheckpointFields;
+  readonly hash: HashStr;
+  readonly parentHashes: string[];
   readonly summary: string;
 }
 
@@ -36,10 +43,10 @@ export interface ICheckpoint {
  * but aside from this constraint they may have any other properties
  * with any level of arbitrary nesting.
  */
-
-type Any = any;
-export interface IEvent extends Any {
+export interface IEvent {
   readonly hash: HashStr;
+  readonly name: string;
+  readonly payload: object;
 }
 
 export interface IAffix {

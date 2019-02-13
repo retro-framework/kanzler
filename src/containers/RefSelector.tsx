@@ -31,7 +31,21 @@ async function getCheckpoints(startHash: string): Promise<ICheckpoint[]> {
   if (!firstCp) {
     return checkpoints;
   }
-  checkpoints.push(firstCp);
+
+  // const realDate = Date.parse(firstCp.fields.date);
+  // console.log(
+  //   "Checkpoint With Parsed Date",
+  //   {
+  //     ...firstCp,
+  //     fields: { ...firstCp.fields, date: realDate }
+  //   },
+  //   firstCp.fields.date,
+  //   realDate
+  // );
+  checkpoints.push({
+    ...firstCp
+    // fields: { ...firstCp.fields, date: realDate }
+  });
 
   let last = checkpoints[checkpoints.length - 1];
   while (last.parentHashes && last.parentHashes.length) {

@@ -12,7 +12,6 @@ class ObjectDatabaseViewer extends React.Component<IProps> {
     this.props.changeSelectedCheckpoint(checkpoint);
   };
   public render() {
-    console.log("odbv is loading", this.props);
     if (this.props.loading === true) {
       return <span>Loading…</span>;
     }

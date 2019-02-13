@@ -38,13 +38,16 @@ export default function(
         loading: true
       };
     case SELECTED_ODBV_CHECKPOINT_CHANGED:
-      console.log("in resolver SELECTED_ODBV_CHECKPOINT_CHANGED", state, {
-        ...state,
-        loading: true
-      });
       return { ...state, loading: true };
     case ODBV_AFFIX_AVAILABLE:
-      return { ...state, loading: true };
+      console.log("new affix showed up, render that mofo", action.payload);
+      const checkpoints = state.checkpoints.map(cp => {
+        if (cp.affixHash === action.payload.hash) {
+          return { affix: action.payload, ...cp };
+        }
+        return cp;
+      });
+      return { ...state, loading: false, checkpoints };
     case ODBV_INVALIDATE:
   }
   return { ...state };

@@ -5,9 +5,7 @@ import "./ServerURL.css";
 class ServerURL extends React.Component<any, any> {
   // TODO: types
   constructor(props: any) {
-    // TODO: types
     super(props);
-    // this.props = props;
   }
   public componentWillMount() {
     this.props.refreshRefsFromURL(new URL(window.location.href).origin);

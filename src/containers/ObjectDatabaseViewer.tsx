@@ -23,7 +23,7 @@ async function getAffix(hash: HashStr): Promise<IAffix> {
     const getEventResult = await fetch(`/obj/${eventHash}`)
       .then(response => response.json())
       .catch(e => console.error);
-    return Object.assign({ hash }, getEventResult);
+    return Object.assign({ hash: eventHash }, getEventResult);
   };
 
   const result = await fetch(`/obj/${hash}`)
@@ -33,7 +33,7 @@ async function getAffix(hash: HashStr): Promise<IAffix> {
     return Promise.reject("error getting affix result");
   }
 
-  const affix = Object.assign({ hash, entites: [] });
+  const affix = Object.assign({ hash, entities: [] }) as IAffix;
   const affixEvents = {};
 
   Object.keys(result).forEach(entity => {
@@ -44,7 +44,7 @@ async function getAffix(hash: HashStr): Promise<IAffix> {
   });
 
   Object.keys(affixEvents).forEach(entity => {
-    affix.entites.push({ name: entity, events: affixEvents[entity] });
+    affix.entities.push({ name: entity, events: affixEvents[entity] });
   });
 
   return affix;

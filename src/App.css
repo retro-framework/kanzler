@@ -25,7 +25,14 @@
   border-width: 1px 0 0 1px;
   background-color: RGBA(245, 247, 249, 1.00);
   box-sizing: border-box;
+
+  overflow: hidden scroll;
+
 }
+
+/* .Retro__PanelContents {
+  outline: 1px dotted green;
+} */
 
 .Retro__Panel:nth-child(2) {
   width: 66.6%;
