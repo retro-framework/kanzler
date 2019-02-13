@@ -1,22 +1,22 @@
-import { IStateErrorable, IStateLoadable, ICheckpoint } from './index'
+import { IStateErrorable, IStateLoadable, ICheckpoint } from "./index";
 
 /*
  * Redux State
  */
 export interface IState {
-    readonly url: URL
+  readonly url: URL;
 }
 
 /*
  * Component Props
  */
 interface IPropsFromState {
-    url: URL
+  url: URL;
 }
 
 // tslint:disable-next-line:no-empty-interface
 interface IPropsFromDispatch {
-    refreshRefsFromURL: (_: URL) => void
+  refreshRefsFromURL: (_: URL) => void;
 }
 
 // tslint:disable-next-line:no-empty-interface

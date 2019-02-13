@@ -1,18 +1,16 @@
-import * as React from 'react';
+import * as React from "react";
 
-import RetroCabinet from './components/RetroCabinet';
+import RetroCabinet from "./components/RetroCabinet";
 
-import './App.css';
-import './index.css';
+import "./App.css";
+import "./index.css";
 
 class App extends React.Component {
   constructor(props: any) {
     super(props);
   }
   public render() {
-    return (
-      <RetroCabinet />
-    );
+    return <RetroCabinet />;
   }
 }
 

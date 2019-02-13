@@ -2,16 +2,20 @@
   list-style-type: none;
   padding-left: 0;
   font-family: monospace;
+
+  height: 100%;
+  overflow: scroll;
 }
 
 .odbv__checkpointHash {
-  color:darkred;
+  color: darkred;
   margin-right: .5rem;
 }
 
 .odbv__refIndicator {
   color: RGBA(220, 185, 91, 1.00);
 }
+
 .odbv__refIndicator:before {
   content: '(';
 }
