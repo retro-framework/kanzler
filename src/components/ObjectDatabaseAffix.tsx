@@ -1,5 +1,3 @@
-import "./ObjectDatabaseAffix.css";
-
 import * as React from "react";
 import { IProps } from "../types/ObjectDatabaseAffix";
 
@@ -16,36 +14,32 @@ class ObjectDatabaseAffix extends React.Component<IProps> {
 
         const events = e.events.map((ev, j) => {
           return (
-            <li key={"event" + j}>
-              <span className="odbv__entityName">{name}</span>
-              <span className="odbv__typeShortCode">EVT</span>
-              <span className="odbv__eventHash">
+            <tr key={"event" + j}>
+              <td className="odbv__entityName">{name}</td>
+              <td className="odbv__eventHash">
                 {ev.hash.substr(7, 8) /* offset skips sha256: prefix */}
-              </span>
-              <span className="odbv__eventHash">{ev.name}</span>
-              <span className="odbv__eventPayload">
+              </td>
+              <td className="odbv__eventName">{ev.name}</td>
+              <td className="odbv__eventPayload">
                 {JSON.stringify(ev.payload)}
-              </span>
-            </li>
+              </td>
+            </tr>
           );
         });
 
-        return (
-          <li key={"entity" + i}>
-            <ul className="odbv__entityEvents">{events}</ul>
-          </li>
-        );
+        return events;
       });
     }
 
     return (
-      <div className="obdv__affix">
-        <span className="odbv__typeShortCode">AFX</span>
-        <span className="odbv__affixHash">
+      <tr className="obdv__affix">
+        <td className="odbv__affixHash">
           {affix.hash.substr(7, 8) /* offset skips sha256: prefix */}
-        </span>
-        <ul className="odbv__affixEntities">{entities}</ul>
-      </div>
+        </td>
+        <td colSpan={3}>
+          <table className="odbv__affixEntities">{entities}</table>
+        </td>
+      </tr>
     );
   }
 }

@@ -7,11 +7,20 @@
   flex-shrink: 1;
 }
 
-.odbv__checkpointHash,
-.odbv__affixHash,
+.odbv__checkpointHash {
+  color: rgb(151, 1, 211);
+}
+
+.odbv__affixHash {
+  color: rgb(81, 1, 211);
+}
+
+.obdv__affix {
+  vertical-align: top;
+}
+
 .odbv__eventHash {
   color: rgb(211, 1, 2);
-  margin-right: .5rem;
 }
 
 .odbv__checkpointFieldDate {
@@ -24,7 +33,6 @@
 
 .odbv__checkpointFieldDate:after {
   content: ")";
-  margin-right: .5rem;
 }
 
 .odbv__checkpointFieldSession {
@@ -37,7 +45,6 @@
 
 .odbv__checkpointFieldSession:after {
   content: ">";
-  margin-right: .5rem;
 }
 
 .odbv__refIndicator {
@@ -50,13 +57,12 @@
 
 .odbv__refIndicator:after {
   content: ')';
-  margin-right: .5rem;
 }
 
 .odbv__checkpointSubject,
+.obbv__eventName,
 .odbv__entityName {
   color: darkslategrey;
-  margin-right: .5rem;
 }
 
 .odbv__datestamp {
@@ -69,7 +75,6 @@
 
 .odbv__datestamp:after {
   content: ')';
-  margin-right: .5rem;
 }
 
 .odbv__authorName {

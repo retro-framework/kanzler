@@ -40,7 +40,7 @@ class ObjectDatabaseViewer extends React.Component<IProps> {
     if (this.props.loading) {
       className += " odbv--loading";
     }
-    return <div className={className}>{cps}</div>;
+    return <table className={className}>{cps}</table>;
   }
 }
 

@@ -21,22 +21,23 @@ class ObjectDatabaseCheckpoint extends React.Component<IProps> {
     }
 
     return (
-      <div className="obdv__checkpoint">
-        <span className="odbv__typeShortCode">CHK</span>
-        <span className="odbv__checkpointHash" title={checkpoint.hash}>
-          {checkpoint.hash.substr(7, 8) /* offset skips sha256: prefix */}
-        </span>
-        <a className="odbv__checkpointSubject" href="#" onClick={this.update}>
-          {window.atob(checkpoint.commandDesc)}
-        </a>
-        <span className="odbv__checkpointFieldDate">
-          {checkpoint.fields.date}
-        </span>
-        <span className="odbv__checkpointFieldSession">
-          {checkpoint.fields.session}
-        </span>
+      <React.Fragment>
+        <tr className="obdv__checkpoint">
+          <td className="odbv__checkpointHash" title={checkpoint.hash}>
+            {checkpoint.hash.substr(7, 8) /* offset skips sha256: prefix */}
+          </td>
+          <a className="odbv__checkpointSubject" href="#" onClick={this.update}>
+            {window.atob(checkpoint.commandDesc).substr(0, 80)}
+          </a>
+          <td className="odbv__checkpointFieldDate">
+            {checkpoint.fields.date}
+          </td>
+          <td className="odbv__checkpointFieldSession">
+            {checkpoint.fields.session}
+          </td>
+        </tr>
         {affix}
-      </div>
+      </React.Fragment>
     );
   }
 }
